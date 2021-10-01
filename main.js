@@ -57,11 +57,14 @@ function addNewTodo(text='',isCompleted=false){
 
 //讀取LocalStorage
 function readLS(){
+    
     const lsTodos=JSON.parse(localStorage.getItem('todos'));
-    lsTodos.forEach(function(item){
-        // console.log(item['text'],item['completed']);
-        addNewTodo(item['text'],item['completed']);
-    });
+    if(lsTodos){
+        lsTodos.forEach(function(item){
+            // console.log(item['text'],item['completed']);
+            addNewTodo(item['text'],item['completed']);
+        });
+    }
 }
 
 //更新LocalStorage
